@@ -1,13 +1,36 @@
-# Dickey Fuller Test for Stationarity in Time Series with Python
+# Dickey-Fuller Test for Stationarity in Time Series with Python
 
-**Published:** 2024-12-18
-**Medium:** [https://medium.com/@kyle-t-jones/dickey-fuller-test-for-stationarity-in-time-series-with-python-4e4bf1953eed](https://medium.com/@kyle-t-jones/dickey-fuller-test-for-stationarity-in-time-series-with-python-4e4bf1953eed)
+This project demonstrates the Augmented Dickey-Fuller (ADF) test for testing stationarity in time series data.
 
-## About
+## Article
 
-Place the code for this article in this repository.
-The original article export is saved as `article.md`.
+Medium article: [Dickey-Fuller Test for Stationarity](https://medium.com/@kylejones_47003/dickey-fuller-test-for-stationarity-in-time-series-with-python-4e4bf1953eed)
 
-## Files
+## Project Structure
 
-Add your `.ipynb`, `.py`, `.yaml`, `.js`, `.ts`, or other project files here.
+```
+.
+├── README.md           # This file
+├── main.py            # Main entry point
+├── config.yaml        # Configuration file
+├── requirements.txt   # Python dependencies
+├── src/               # Core functions
+│   ├── core.py        # Stationarity testing functions
+│   └── plotting.py    # Tufte-style plotting utilities
+├── tests/             # Unit tests
+├── data/              # Data files (if needed)
+└── images/            # Generated plots and figures
+```
+
+## Configuration
+
+Edit `config.yaml` to customize:
+- Data generation parameters (n_samples, seed)
+- Rolling window size
+- Output settings
+
+## Caveats
+
+- By default, the script generates synthetic random walk data (non-stationary).
+- The ADF test assumes the time series has sufficient length for meaningful statistical inference.
+- A p-value ≤ 0.05 indicates the series is stationary (reject null hypothesis of non-stationarity).
