@@ -36,7 +36,7 @@ def test_stationarity(series: pd.Series) -> Dict[str, Any]:
     }
 
 def plot_time_series(df: pd.DataFrame, output_path: Path):
- """Plot time series """
+    """Plot time series """
     fig, ax = plt.subplots(figsize=(10, 6))
     
     ax.plot(df.index, df['value'], color="#4A90A4", linewidth=1.2)
