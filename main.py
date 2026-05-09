@@ -44,7 +44,7 @@ def main():
     
     result = test_stationarity(df['value'])
     
-            logging.info("Is Stationary:", result['is_stationary'])
+    logging.info("Is Stationary:", result['is_stationary'])
     for key, value in result['critical_values'].items():
         logging.info(f'Critical Value ({key}): {value:.4f}')
     

@@ -6,6 +6,12 @@ from dataclasses import dataclass
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 np.random.seed(42)
 plt.rcParams.update(
     {
@@ -56,8 +62,8 @@ def main():
     sd = s.diff(cfg.season).dropna()
     seas = adf_summary(sd)
 
-    print("ADF on raw:", base)
-    print("ADF on seasonal-differenced:", seas)
+    logger.info("ADF on raw:", base)
+    logger.info("ADF on seasonal-differenced:", seas)
 
     fig, ax = plt.subplots(2, 2, figsize=(10, 6))
     ax[0, 0].plot(s.index, s.values)
