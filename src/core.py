@@ -35,29 +35,31 @@ def test_stationarity(series: pd.Series) -> Dict[str, Any]:
         'is_stationary': result[1] <= 0.05
     }
 
-def plot_time_series(df: pd.DataFrame, output_path: Path):
+def plot_time_series(df: pd.DataFrame, output_path: Path, plot: bool = False):
     """Plot time series """
-    fig, ax = plt.subplots(figsize=(10, 6))
+    if plot:
+        fig, ax = plt.subplots(figsize=(10, 6))
     
-    ax.plot(df.index, df['value'], color="#4A90A4", linewidth=1.2)
-    ax.set_xlabel("Time")
-    ax.set_ylabel("Value")
+        ax.plot(df.index, df['value'], color="#4A90A4", linewidth=1.2)
+        ax.set_xlabel("Time")
+        ax.set_ylabel("Value")
     
-    plt.savefig(output_path, dpi=100, bbox_inches="tight")
-    plt.close()
+        plt.savefig(output_path, dpi=100, bbox_inches="tight")
+        plt.close()
 
-def plot_rolling_stats(stats_df: pd.DataFrame, output_path: Path):
+def plot_rolling_stats(stats_df: pd.DataFrame, output_path: Path, plot: bool = False):
     """Plot time series with rolling statistics."""
-    fig, ax = plt.subplots(figsize=(10, 6))
+    if plot:
+        fig, ax = plt.subplots(figsize=(10, 6))
     
-    ax.plot(stats_df.index, stats_df['value'], label='Original', color="#4A90A4", linewidth=1.2)
-    ax.plot(stats_df.index, stats_df['rolling_mean'], label='Rolling Mean', color="#D4A574", linewidth=1.2)
-    ax.plot(stats_df.index, stats_df['rolling_std'], label='Rolling Std', color="#8B6F9E", linewidth=1.2)
+        ax.plot(stats_df.index, stats_df['value'], label='Original', color="#4A90A4", linewidth=1.2)
+        ax.plot(stats_df.index, stats_df['rolling_mean'], label='Rolling Mean', color="#D4A574", linewidth=1.2)
+        ax.plot(stats_df.index, stats_df['rolling_std'], label='Rolling Std', color="#8B6F9E", linewidth=1.2)
     
-    ax.set_xlabel("Time")
-    ax.set_ylabel("Value")
-    ax.legend(loc='best')
+        ax.set_xlabel("Time")
+        ax.set_ylabel("Value")
+        ax.legend(loc='best')
     
-    plt.savefig(output_path, dpi=100, bbox_inches="tight")
-    plt.close()
+        plt.savefig(output_path, dpi=100, bbox_inches="tight")
+        plt.close()
 
