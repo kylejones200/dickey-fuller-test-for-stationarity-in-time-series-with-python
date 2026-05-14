@@ -1,7 +1,7 @@
 # Dickey-Fuller Test for Stationarity in Time Series with Python One of the key properties to evaluate in a time series is stationarity.
 A stationary time series has statistical properties --- like mean...
 
-### **Dickey**-Fuller Test for Stationarity in Time Series with Python
+### Dickey-Fuller Test for Stationarity in Time Series with Python
 #### The Dickey-Fuller test validates that a time series is stationarity with is a key assumption for many forecasting models.
 One of the key properties to evaluate in a time series is stationarity. A stationary time series has statistical properties --- like mean, variance, and autocorrelation --- that remain constant over time.
 
