@@ -66,7 +66,6 @@ result = adfuller(df['weight'])
 logger.info(f"ADF Statistic: {result[0]}, p-value: {result[1]}")
 
 
-np.random.seed(42)
 signalplot.apply(font_family='serif')
 
 
@@ -94,6 +93,7 @@ def adf_summary(y: pd.Series) -> dict:
 
 
 def main(plot: bool = False):
+    np.random.seed(42)
     cfg = Config()
     s = load_series(cfg)
     base = adf_summary(s)

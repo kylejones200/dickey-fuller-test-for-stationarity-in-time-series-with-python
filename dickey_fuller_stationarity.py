@@ -5,13 +5,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.stattools import adfuller
 import logging
+np.random.seed(42)
 
 # Simulate a time series
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
-np.random.seed(42)
 x = np.cumsum(np.random.normal(loc=0, scale=1, size=200))
 df = pd.DataFrame({'value': x})
 
