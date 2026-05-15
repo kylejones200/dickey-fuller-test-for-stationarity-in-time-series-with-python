@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any
 from statsmodels.tsa.stattools import adfuller
 import matplotlib.pyplot as plt
 import logging
@@ -25,7 +25,7 @@ def calculate_rolling_stats(df: pd.DataFrame, window: int = 12) -> pd.DataFrame:
         'rolling_std': df['value'].rolling(window=window).std()
     })
 
-def test_stationarity(series: pd.Series) -> Dict[str, Any]:
+def test_stationarity(series: pd.Series) -> dict[str, Any]:
     """Perform Augmented Dickey-Fuller test."""
     result = adfuller(series)
     return {
