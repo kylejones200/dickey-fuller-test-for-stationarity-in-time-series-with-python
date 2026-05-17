@@ -34,3 +34,11 @@ Edit `config.yaml` to customize:
 - By default, the script generates synthetic random walk data (non-stationary).
 - The ADF test assumes the time series has sufficient length for meaningful statistical inference.
 - A p-value ≤ 0.05 indicates the series is stationary (reject null hypothesis of non-stationarity).
+
+## Disclaimer
+
+Educational/demo code only. Not financial, safety, or engineering advice. Use at your own risk. Verify results independently before any production or operational use.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
