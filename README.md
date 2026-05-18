@@ -2,6 +2,14 @@
 
 This project demonstrates the Augmented Dickey-Fuller (ADF) test for testing stationarity in time series data.
 
+## Business context
+
+One of the key properties to evaluate in a time series is stationarity. A stationary time series has statistical properties --- like mean, variance, and autocorrelation --- that remain constant over time.
+
+<figcaption>Photo by <a class="markup--anchor markup--figure-anchor" rel="photo-creator noopener" target="_blank">Annie Spratt</a> on <a class="markup--anchor markup--figure-anchor"
+
+Many statistical models for time series assume stationarity, such as ARIMA. we use the Dickey-Fuller Test to validation that assumption. Dickey-Fuller is a statistical test that determines whether a time series has a unit root, which indicates non-stationarity.
+
 ## Article
 
 Medium article: [Dickey-Fuller Test for Stationarity](https://medium.com/@kylejones_47003/dickey-fuller-test-for-stationarity-in-time-series-with-python-4e4bf1953eed)
