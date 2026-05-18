@@ -1,6 +1,5 @@
 # Description: Short example for Dickey Fuller Test for Stationarity in Time Series with Python.
 
-
 import logging
 from dataclasses import dataclass
 from pathlib import Path
@@ -68,10 +67,8 @@ adf_result_log = adfuller(df_log)
 logger.info(f"ADF Statistic after Log: {adf_result_log[0]}")
 logger.info(f"p-value after Log: {adf_result_log[1]}")
 
-
 result = adfuller(df["weight"])
 logger.info(f"ADF Statistic: {result[0]}, p-value: {result[1]}")
-
 
 signalplot.apply(font_family="serif")
 
@@ -104,13 +101,10 @@ def main(plot: bool = False):
     cfg = Config()
     s = load_series(cfg)
     base = adf_summary(s)
-
     sd = s.diff(cfg.season).dropna()
     seas = adf_summary(sd)
-
     logger.info("ADF on raw:", base)
     logger.info("ADF on seasonal-differenced:", seas)
-
     if plot:
         fig, ax = plt.subplots(2, 2, figsize=(10, 6))
         ax[0, 0].plot(s.index, s.values)

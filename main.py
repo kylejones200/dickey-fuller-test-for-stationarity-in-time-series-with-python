@@ -21,7 +21,7 @@ logging.basicConfig(
 )
 
 
-def load_config(config_path: Path = None) -> dict:
+def load_config(config_path: Path | None = None) -> dict:
     """Load configuration from YAML file."""
     if config_path is None:
         config_path = Path(__file__).parent / "config.yaml"
@@ -37,7 +37,6 @@ def main():
         "--output-dir", type=Path, default=None, help="Output directory for plots"
     )
     args = parser.parse_args()
-
     config = load_config(args.config)
     output_dir = (
         Path(args.output_dir)
@@ -45,16 +44,11 @@ def main():
         else Path(config["output"]["figures_dir"])
     )
     output_dir.mkdir(exist_ok=True)
-
     df = generate_random_walk(config["data"]["n_samples"], config["data"]["seed"])
-
     plot_time_series(df, output_dir / "simulated_timeseries.png")
-
     stats_df = calculate_rolling_stats(df, config["data"]["rolling_window"])
     plot_rolling_stats(stats_df, output_dir / "rolling_stats.png")
-
     result = test_stationarity(df["value"])
-
     logging.info("Is Stationary:", result["is_stationary"])
     for key, value in result["critical_values"].items():
         logging.info(f"Critical Value ({key}): {value:.4f}")

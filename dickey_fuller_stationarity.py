@@ -10,26 +10,20 @@ from statsmodels.tsa.stattools import adfuller
 
 def main():
     np.random.seed(42)
-
     # Simulate a time series
-
     # Configure logging
     logging.basicConfig(level=logging.INFO, format="%(message)s")
-
     x = np.cumsum(np.random.normal(loc=0, scale=1, size=200))
     df = pd.DataFrame({"value": x})
-
     # Plot the time series
     plt.figure(figsize=(10, 6))
     plt.plot(df["value"])
     plt.title("Simulated Time Series")
     plt.savefig("simulated_timeseries.png")
     plt.show()
-
     # Calculate rolling statistics
     rolling_mean = df["value"].rolling(window=12).mean()
     rolling_std = df["value"].rolling(window=12).std()
-
     plt.figure(figsize=(10, 6))
     plt.plot(df["value"], label="Original")
     plt.plot(rolling_mean, label="Rolling Mean", color="red")
@@ -38,7 +32,6 @@ def main():
     plt.title("Rolling Mean & Standard Deviation")
     plt.savefig("rolling_stats.png")
     plt.show()
-
     # Apply Dickey-Fuller test
     result = adfuller(df["value"])
     logging.info("ADF Statistic:", result[0])

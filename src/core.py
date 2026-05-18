@@ -1,6 +1,5 @@
 """Core functions for Dickey-Fuller stationarity testing."""
 
-import logging
 from pathlib import Path
 from typing import Any
 
@@ -8,9 +7,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from statsmodels.tsa.stattools import adfuller
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 
 def generate_random_walk(n_samples: int = 200, seed: int = 42) -> pd.DataFrame:
@@ -46,11 +42,9 @@ def plot_time_series(df: pd.DataFrame, output_path: Path, plot: bool = False):
     """Plot time series"""
     if plot:
         fig, ax = plt.subplots(figsize=(10, 6))
-
         ax.plot(df.index, df["value"], color="#4A90A4", linewidth=1.2)
         ax.set_xlabel("Time")
         ax.set_ylabel("Value")
-
         plt.savefig(output_path, dpi=100, bbox_inches="tight")
         plt.close()
 
@@ -61,7 +55,6 @@ def plot_rolling_stats(stats_df: pd.DataFrame, output_path: Path, plot: bool = F
         return
 
     fig, ax = plt.subplots(figsize=(10, 6))
-
     ax.plot(
         stats_df.index,
         stats_df["value"],
@@ -83,10 +76,8 @@ def plot_rolling_stats(stats_df: pd.DataFrame, output_path: Path, plot: bool = F
         color="#8B6F9E",
         linewidth=1.2,
     )
-
     ax.set_xlabel("Time")
     ax.set_ylabel("Value")
     ax.legend(loc="best")
-
     plt.savefig(output_path, dpi=100, bbox_inches="tight")
     plt.close()
