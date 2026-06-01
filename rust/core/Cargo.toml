@@ -1,0 +1,9 @@
+[package]
+name = "dickey_fuller_test_for_stationarity_in_time_series_with_python_core"
+description = "Rolling mean and standard deviation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+path = "src/lib.rs"

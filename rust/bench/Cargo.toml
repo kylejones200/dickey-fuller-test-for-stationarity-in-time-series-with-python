@@ -1,0 +1,13 @@
+[package]
+name = "dickey_fuller_test_for_stationarity_in_time_series_with_python_bench"
+description = "Standalone Rust benchmark (no Python)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "bench"
+path = "src/main.rs"
+
+[dependencies]
+dickey_fuller_test_for_stationarity_in_time_series_with_python_core = { path = "../core" }
